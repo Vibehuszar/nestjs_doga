@@ -12,12 +12,12 @@ export class AppService {
   constructor(@InjectRepository(Account) private readonly accountRepository: Repository<Account>,
   @InjectRepository(Owner) private readonly ownerRepository: Repository<Owner>){}
 
-  createAccount(createAccountDto: CreateAccountDto): Promise<Account> {
+createAccount(createAccountDto: CreateAccountDto): Promise<Account> {
     return this.accountRepository.save(
       this.accountRepository.create(createAccountDto)
     );
   }
-  async findOneAccount(condition: any): Promise<Account> {
+findOneAccount(condition: any): Promise<Account> {
     return this.accountRepository.findOne(condition);
   }
 
@@ -43,19 +43,19 @@ removeAccount(id: Number): Promise<any> {
     .execute()
   }
 
-  createOWner(createOwnerDto: CreateOwnerDto): Promise<Owner> {
+createOwner(createOwnerDto: CreateOwnerDto): Promise<Owner> {
     return this.ownerRepository.save(
       this.ownerRepository.create(createOwnerDto)
     );
   }
-  async findOneOwner(condition: any): Promise<Owner> {
+findOneOwner(condition: any): Promise<Owner> {
     return this.ownerRepository.findOne(condition);
   }
 
 findAllOwners(): Promise<Owner[]> {
     return this.ownerRepository.find();
   }
-updateOWner(id: number, data: any): Promise<any> {
+updateOWner(id: Number, data: any): Promise<any> {
     return this.ownerRepository
     .createQueryBuilder()
     .update(Owner)

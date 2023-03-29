@@ -30,7 +30,7 @@ export class AppController {
     return this.appService.findAllAccounts();
   }
 
-  @Get(':id')
+  @Get('/accounts/:id')
   findOneAccount(@Param('id') id: string) {
     return this.appService.findOneAccount(+id);
   }
@@ -47,7 +47,7 @@ export class AppController {
 
   @Post('/owners')
   createOwner(@Body() createOwnertDto: CreateOwnerDto) {
-    return this.appService.createOWner(createOwnertDto);
+    return this.appService.createOwner(createOwnertDto);
   }
 
   @Get('/owners')
@@ -55,7 +55,7 @@ export class AppController {
     return this.appService.findAllOwners();
   }
 
-  @Get('/oswner/:id')
+  @Get('/owners/:id')
   findOneOwner(@Param('id') id: string) {
     return this.appService.findOneOwner(+id);
   }
